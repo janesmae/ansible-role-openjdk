@@ -16,22 +16,22 @@
     remote_src: yes
 
 - name: Manage alternative for java
-    alternatives:
-      name: java
-      link: "/usr/bin/java"
-      path: "{{ openjdk_folder }}/bin/java"
-    when: openjdk_alternatives
+  alternatives:
+    name: java
+    link: "/usr/bin/java"
+    path: "{{ openjdk_folder }}/bin/java"
+  when: openjdk_alternatives
 
-  - name: Manage alternative for jar
-    alternatives:
-      name: jar
-      link: "/usr/bin/jar"
-      path: "{{ openjdk_folder }}/bin/jar"
-    when: openjdk_alternatives
+- name: Manage alternative for jar
+  alternatives:
+    name: jar
+    link: "/usr/bin/jar"
+    path: "{{ openjdk_folder }}/bin/jar"
+  when: openjdk_alternatives
 
-  - name: Manage alternative for javac
-    alternatives:
-      name: javac
-      link: "/usr/bin/javac"
-      path: "{{ openjdk_folder  }}/bin/javac"
-    when: openjdk_alternatives
+- name: Manage alternative for javac
+  alternatives:
+    name: javac
+    link: "/usr/bin/javac"
+    path: "{{ openjdk_folder  }}/bin/javac"
+  when: openjdk_alternatives
