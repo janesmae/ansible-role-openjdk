@@ -2,6 +2,7 @@
 
 galaxy_info:
   author: Jaan Janesmae
+  role_name: openjdk
   description: OpenJDK 10 installed from archive.
   license: MIT
   min_ansible_version: 2.5
