@@ -1,0 +1,37 @@
+---
+
+- name: Include OS-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Create folder for OpenJDK
+  file:
+    path: "{{ openjdk_folder }}"
+    state: directory
+
+- name: Download and unpack OpenJDK
+  unarchive:
+    src: "{{ openjdk_source}}"
+    dest: "{{ openjdk_folder }}"
+    extra_opts: [--strip-components=1]
+    remote_src: yes
+
+- name: Manage alternative for java
+    alternatives:
+      name: java
+      link: "/usr/bin/java"
+      path: "{{ openjdk_folder }}/bin/java"
+    when: openjdk_alternatives
+
+  - name: Manage alternative for jar
+    alternatives:
+      name: jar
+      link: "/usr/bin/jar"
+      path: "{{ openjdk_folder }}/bin/jar"
+    when: openjdk_alternatives
+
+  - name: Manage alternative for javac
+    alternatives:
+      name: javac
+      link: "/usr/bin/javac"
+      path: "{{ openjdk_folder  }}/bin/javac"
+    when: openjdk_alternatives

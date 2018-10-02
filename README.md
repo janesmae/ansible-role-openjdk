@@ -20,8 +20,12 @@ ansible-galaxy install janesmae.openjdk
 ## Role variables
 
 ```
-# default options
+# Default options
+openjdk_source: https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_linux-x64_bin.tar.gz
+openjdk_folder: /usr/local/jdk-10
 
+# Setting alternatives
+openjdk_alternatives: true
 ```
 
 ## Example playbook
